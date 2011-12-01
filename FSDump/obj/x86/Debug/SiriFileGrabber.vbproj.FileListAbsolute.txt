@@ -1,0 +1,11 @@
+C:\Users\Stan\documents\visual studio 2010\Projects\SiriFileGrabber\SiriFileGrabber\bin\Debug\SiriFileGrabber.exe
+C:\Users\Stan\documents\visual studio 2010\Projects\SiriFileGrabber\SiriFileGrabber\bin\Debug\SiriFileGrabber.pdb
+C:\Users\Stan\documents\visual studio 2010\Projects\SiriFileGrabber\SiriFileGrabber\bin\Debug\SiriFileGrabber.xml
+C:\Users\Stan\documents\visual studio 2010\Projects\SiriFileGrabber\SiriFileGrabber\bin\Debug\Ionic.Zip.dll
+C:\Users\Stan\documents\visual studio 2010\Projects\SiriFileGrabber\SiriFileGrabber\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Stan\documents\visual studio 2010\Projects\SiriFileGrabber\SiriFileGrabber\obj\x86\Debug\SiriFileGrabber.Resources.resources
+C:\Users\Stan\documents\visual studio 2010\Projects\SiriFileGrabber\SiriFileGrabber\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Stan\documents\visual studio 2010\Projects\SiriFileGrabber\SiriFileGrabber\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Stan\documents\visual studio 2010\Projects\SiriFileGrabber\SiriFileGrabber\obj\x86\Debug\SiriFileGrabber.exe
+C:\Users\Stan\documents\visual studio 2010\Projects\SiriFileGrabber\SiriFileGrabber\obj\x86\Debug\SiriFileGrabber.xml
+C:\Users\Stan\documents\visual studio 2010\Projects\SiriFileGrabber\SiriFileGrabber\obj\x86\Debug\SiriFileGrabber.pdb
