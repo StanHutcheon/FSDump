@@ -4,7 +4,7 @@
     Public ipsw As String
     Public tmp As String = My.Computer.FileSystem.SpecialDirectories.Temp
     Public vfdecryptexe As Process = New Process
-    Public vfdecryptkey As String = "879132da717bbfec47df50307d759952e81947edb4faa6469a52f219853884f68eb8c7ce"
+    Public vfdecryptkey As String = "a31ffd506c6711c5a0c52c9f0a2f7208a2f63ad9dd40506e70d80ea20a981eb1312bc774"
     Public HasRead As Boolean = False
 
     'free bit of code for ya (the normal ShellWait doesn't work in command line VB apps, so i wrote my own. I never used it in this app though.
@@ -34,7 +34,7 @@
     'neat huh?
 
     Sub Main()
-        Console.Title = "FSDump - iPhone4,1 iOS 5.1"
+        Console.Title = "FSDump - iPhone4,1 iOS 5.0.1 9A406"
         Dim a_strArgs() As String
 
         Dim i As Integer
@@ -43,7 +43,7 @@
         For i = LBound(a_strArgs) To UBound(a_strArgs)
             Select Case LCase(a_strArgs(i))
                 Case "-h"
-                    Console.WriteLine("usage: -i <ipsw>")
+                    'Console.WriteLine("usage: -i <ipsw>")
                     Exit Sub
                 Case "-i"
                     If i = UBound(a_strArgs) Then
@@ -58,8 +58,10 @@
                         ipsw = a_strArgs(i)
                     End If
                 Case Else
-                    Console.WriteLine("usage: -i <ipsw>")
-                    Exit Sub
+                    'Console.WriteLine("usage: -i <ipsw>")
+                    Console.WriteLine("Default to download IPSW...")
+                    Console.WriteLine(" ")
+                    'Exit Sub
             End Select
         Next
         Console.WriteLine("--FSDump for iPhone 4S - iOS 5.1--")
@@ -79,6 +81,10 @@
             Exit Sub
         End Try
         Console.WriteLine(" ")
+        Console.WriteLine("Downloading IPSW...")
+        wget("http://appldnld.apple.com/iPhone4//041-3417.20111215.Slnt4/iPhone4,1_5.0.1_9A406_Restore.ipsw", tmp)
+        ipsw = tmp + "\iPhone4,1_5.0.1_9A406_Restore.ipsw"
+        Console.WriteLine(" ")
         'extract
         Console.WriteLine("Unzipping ipsw...")
         Console.WriteLine(" ")
@@ -91,16 +97,16 @@
             Console.WriteLine("Error code 2 'Failed to extract IPSW (corrupt file?)'")
             Exit Sub
         End Try
-        If Not System.IO.File.Exists(tmp + "\fs\038-3074-006.dmg") Then
+        If Not System.IO.File.Exists(tmp + "\fs\038-3763-001.dmg") Then
             Console.WriteLine("This isn't an iPhone 4S ipsw.")
             Exit Sub
         End If
 
         'decrypt
-        Console.WriteLine("Decrypting RootFS [038-3074-006.dmg]...")
+        Console.WriteLine("Decrypting RootFS [038-3763-001.dmg]...")
         Console.WriteLine(" ")
         Try
-            vfdecrypt(vfdecryptkey, tmp + "\fs\038-3074-006.dmg", tmp + "\decrypted.038-3074-006.dmg")
+            vfdecrypt(vfdecryptkey, tmp + "\fs\0038-3763-001.dmg", tmp + "\decrypted.038-3763-001.dmg")
         Catch ex As Exception
             Console.WriteLine("Error code 3 'Failed to decrypt firmware image'")
             Exit Sub
@@ -108,10 +114,10 @@
         Delay(2)
 
         'extract again
-        Console.WriteLine("Extracting RootFS [decrypted.038-3074-006.dmg]...")
+        Console.WriteLine("Extracting RootFS [decrypted.038-3763-001.dmg]...")
         Console.WriteLine(" ")
         Try
-            unzip(tmp + "\decrypted.038-3074-006.dmg", tmp + "\xtractedfs", True)
+            unzip(tmp + "\decrypted.038-3763-001.dmg", tmp + "\xtractedfs", True)
         Catch ex As Exception
             Console.WriteLine("Error code 4 'Failed to extract decrypted firmware image'")
             Exit Sub
@@ -130,7 +136,7 @@
         Delay(2)
 
         'copy fs
-        Console.WriteLine("Dumping filesystem [HoodooVail9B5117b.N94DeveloperOS]...")
+        Console.WriteLine("Dumping filesystem [Telluride9A406.N94OS]...")
         Console.WriteLine(" ")
         If System.IO.Directory.Exists(My.Computer.FileSystem.SpecialDirectories.Desktop + "\4S dump") Then
             Console.WriteLine("The directory '" + My.Computer.FileSystem.SpecialDirectories.Desktop + "\4S dump' already exists. Would you like to overwrite? [y|n]:")
@@ -147,7 +153,7 @@
             Console.WriteLine(" ")
         End If
         Try
-            System.IO.Directory.Move(tmp + "\xtractedfs\5\HoodooVail9B5117b.N94DeveloperOS", My.Computer.FileSystem.SpecialDirectories.Desktop + "\4S dump")
+            System.IO.Directory.Move(tmp + "\xtractedfs\5\Telluride9A406.N94OS", My.Computer.FileSystem.SpecialDirectories.Desktop + "\4S dump")
             Console.WriteLine("Dumped to: " + My.Computer.FileSystem.SpecialDirectories.Desktop + "\4S Dump")
             Console.WriteLine(" ")
             Console.WriteLine("*note: all plists within the dump don't contain text")
@@ -168,6 +174,21 @@
         decrypt.StartInfo.FileName = My.Application.Info.DirectoryPath + "\tmp\vfdecrypt.exe"
         decrypt.Start()
         decrypt.WaitForExit()
+    End Sub
+
+    Public Sub wget(ByVal file As String, ByVal dir As String)
+        Dim intPos As Int32
+        intPos = file.LastIndexOfAny("/")
+        intPos += 1
+        Dim FileName As String = file.Substring(intPos, (Len(file) - intPos))
+        ChDir(My.Application.Info.DirectoryPath + "\tmp")
+        Dim wget As Process = New Process
+        wget.StartInfo.UseShellExecute = False
+        wget.StartInfo.Arguments = " -O " + dir + "\" + FileName + " " + file
+        wget.StartInfo.RedirectStandardOutput = True
+        wget.StartInfo.FileName = My.Application.Info.DirectoryPath + "\tmp\wget.exe"
+        wget.Start()
+        wget.WaitForExit()
     End Sub
 
     Public Sub unzip(ByVal file As String, Optional ByVal dir As String = "", Optional ByVal overwrite As Boolean = False)

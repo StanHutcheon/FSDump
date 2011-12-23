@@ -8,3 +8,13 @@ C:\Users\Stan\Documents\Visual Studio 2010\Projects\SiriFileGrabber\FSDump\obj\x
 C:\Users\Stan\Documents\Visual Studio 2010\Projects\SiriFileGrabber\FSDump\obj\x86\Debug\FSDump.exe
 C:\Users\Stan\Documents\Visual Studio 2010\Projects\SiriFileGrabber\FSDump\obj\x86\Debug\FSDump.xml
 C:\Users\Stan\Documents\Visual Studio 2010\Projects\SiriFileGrabber\FSDump\obj\x86\Debug\FSDump.pdb
+C:\Users\Stan\Documents\Projects\FSDump\FSDump\obj\x86\Debug\FSDump.exe
+C:\Users\Stan\Documents\Projects\FSDump\FSDump\obj\x86\Debug\FSDump.xml
+C:\Users\Stan\Documents\Projects\FSDump\FSDump\obj\x86\Debug\FSDump.pdb
+C:\Users\Stan\Documents\Projects\FSDump\FSDump\bin\Debug\FSDump.exe
+C:\Users\Stan\Documents\Projects\FSDump\FSDump\bin\Debug\FSDump.pdb
+C:\Users\Stan\Documents\Projects\FSDump\FSDump\bin\Debug\FSDump.xml
+C:\Users\Stan\Documents\Projects\FSDump\FSDump\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Stan\Documents\Projects\FSDump\FSDump\obj\x86\Debug\FSDump.Resources.resources
+C:\Users\Stan\Documents\Projects\FSDump\FSDump\obj\x86\Debug\ResGen.read.1.tlog
+C:\Users\Stan\Documents\Projects\FSDump\FSDump\obj\x86\Debug\ResGen.write.1.tlog

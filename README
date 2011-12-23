@@ -1,6 +1,7 @@
 FSDump is a command line application that (currently):
 
- *Extracts the iPhone 4S 5.1 IPSW
+ *Downloads iPhone 4S 5.0.1 IPSW
+ *Extracts the iPhone 4S 5.0.1 IPSW
  *Decrypts the RootFS
  *Extracts the contents of the RootFS
  *Dumps it to your Desktop
