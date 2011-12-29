@@ -86,6 +86,12 @@
                         Log("IPSW is legit, skipping next SHA1 check...")
                         Log(LogNewLine:=True)
                         HashChecked = True
+                    Else
+                        Log("IPSW isn't legit. Nice try.")
+                        Log(LogNewLine:=True)
+                        DownloadFile("http://appldnld.apple.com/iPhone4//041-3417.20111215.Slnt4/iPhone4,1_5.0.1_9A406_Restore.ipsw", tmp)
+                        Log("Downloaded IPSW")
+                        Log(LogNewLine:=True)
                     End If
                 Else
                     Log("IPSW isn't legit. Nice try.")
@@ -94,7 +100,6 @@
                     Log("Downloaded IPSW")
                     Log(LogNewLine:=True)
                 End If
-                'partial_zip("http://appldnld.apple.com/iPhone4//041-3417.20111215.Slnt4/iPhone4,1_5.0.1_9A406_Restore.ipsw", "038-3763-001.dmg", tmp + "\fs\038-3763-001.dmg")
             Catch ex As Exception
                 Console.WriteLine("[Info - Error] Error code 2 'Failed to download IPSW'")
                 Log("Can't download IPSW, probably internet", "Error")
