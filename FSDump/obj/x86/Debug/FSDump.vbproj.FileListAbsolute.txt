@@ -18,3 +18,4 @@ C:\Users\Stan\Documents\Projects\FSDump\FSDump\obj\x86\Debug\ResolveAssemblyRefe
 C:\Users\Stan\Documents\Projects\FSDump\FSDump\obj\x86\Debug\FSDump.Resources.resources
 C:\Users\Stan\Documents\Projects\FSDump\FSDump\obj\x86\Debug\ResGen.read.1.tlog
 C:\Users\Stan\Documents\Projects\FSDump\FSDump\obj\x86\Debug\ResGen.write.1.tlog
+C:\Users\Stan\Documents\Projects\FSDump\FSDump\bin\Debug\FSDump.exe.config
