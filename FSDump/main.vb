@@ -12,11 +12,11 @@
         Log(My.Computer.Info.TotalPhysicalMemory, "System")
         Log(My.Computer.Info.TotalVirtualMemory, "System")
         Log(LogNewLine:=True)
-        Log("FSDump 0.0.2-1")
+        Log("FSDump 0.0.2-2")
         Log(LogNewLine:=True)
 
         Console.Write(" ")
-        Console.Title = "FSDump 0.0.2-1 - iPhone4,1 iOS 5.0.1 9A406"
+        Console.Title = "FSDump 0.0.2-2 - iPhone4,1 iOS 5.0.1 9A406"
         Dim a_strArgs() As String
 
         Dim i As Integer
@@ -50,7 +50,7 @@
             End Select
         Next
 
-        Console.WriteLine("--FSDump 0.0.2-1 for iPhone 4S - iOS 5.0.1--")
+        Console.WriteLine("--FSDump 0.0.2-2 for iPhone 4S - iOS 5.0.1--")
         Console.WriteLine(" ")
         Console.WriteLine("This app wouldn't have been made possible if it wasn't for these developers:")
         Console.WriteLine(" ")
@@ -86,19 +86,18 @@
                         Log("IPSW is legit, skipping next SHA1 check...")
                         Log(LogNewLine:=True)
                         HashChecked = True
-                    Else
-                        Log("IPSW isn't legit. Nice try.")
-                        Log(LogNewLine:=True)
-                        DownloadFile("http://appldnld.apple.com/iPhone4//041-3417.20111215.Slnt4/iPhone4,1_5.0.1_9A406_Restore.ipsw", tmp)
-                        Log("Downloaded IPSW")
-                        Log(LogNewLine:=True)
                     End If
+                Else
+                    Log("IPSW isn't legit. Nice try.")
+                    Log(LogNewLine:=True)
+                    DownloadFile("http://appldnld.apple.com/iPhone4//041-3417.20111215.Slnt4/iPhone4,1_5.0.1_9A406_Restore.ipsw", tmp)
+                    Log("Downloaded IPSW")
+                    Log(LogNewLine:=True)
                 End If
                 'partial_zip("http://appldnld.apple.com/iPhone4//041-3417.20111215.Slnt4/iPhone4,1_5.0.1_9A406_Restore.ipsw", "038-3763-001.dmg", tmp + "\fs\038-3763-001.dmg")
             Catch ex As Exception
                 Console.WriteLine("[Info - Error] Error code 2 'Failed to download IPSW'")
                 Log("Can't download IPSW, probably internet", "Error")
-
                 Exit Sub
             End Try
             Console.WriteLine(" ")
